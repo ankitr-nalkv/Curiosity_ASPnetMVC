@@ -1,0 +1,166 @@
+
+@model Aspcrud.Models.member
+  @{
+      Layout = null;
+    }
+
+@*<!Doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+</head>
+<body>
+  <div id="login-div">
+    @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+    {
+      <table>
+        <tr>
+          <td></td>
+          <td style="text-decoration:underline">Curiosity</td>
+        </tr>
+        <tr>
+          <td>
+            @Html.LabelFor(model => model.uname)
+          </td>
+          <td>
+            @Html.EditorFor(model => model.uname)
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            @Html.ValidationMessageFor(model => model.uname)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            @Html.LabelFor(model => model.pass)
+          </td>
+          <td>
+            @Html.EditorFor(model => model.pass)
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            @Html.ValidationMessageFor(model => model.pass)
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <input type="submit" name="name" value="Login" />
+            <input type="reset" name="name" value="Clear" />
+          </td>
+        </tr>
+      </table>
+    }
+  </div>
+  <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+  <script src="~/Scripts/jquery.validate.min.js"></script>
+  <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>*@
+
+
+
+
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>login </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="~/Scripts/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="~/Scripts/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="~/Scripts/css/freelancer.min.css" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="padding: 8px 0px">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="@Url.Action("Index","Home")">Curious</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          @*<li class="nav-item" style="float: right">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Categories</a>
+            </li>
+            <li class="nav-item" style="float: right">
+              <a class="nav-link js-scroll-trigger" href="#contact">Post Article</a>
+            </li>
+            <li class="nav-item" style="float: right">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>*@
+
+          @*<li class="nav-item" style="float: right">
+            <a style="float: right" class="nav-link js-scroll-trigger" href="@Url.Action("Logout", "Login")">Logout</a>
+          </li>*@
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <div class="container" style="padding:80px 0px">
+    @using (Html.BeginForm("Authorize", "Login", FormMethod.Post))
+    {
+      <h2 class="text-center">Login</h2>
+      <hr class="star-primary">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <form method="post" action="login.jsp">
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>User Name</label>
+                <input class="form-control" id="name" type="text" name="uname" value="" placeholder="User Name" required data-validation-required-message="Please enter your username.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Password</label>
+                <input class="form-control" id="password" type="password" name="pass" value="" placeholder="Password" required data-validation-required-message="Please enter the password.">
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-success btn-lg" id="sendMessageButton">Login</button>
+            </div>
+
+          </form>
+
+          <a href="@Url.Action("Register", "Login")" style="color:white" class="btn btn-success btn-lg">Register</a>
+
+        </div>
+      </div>
+    }
+  </div>
+</body>
+</html>

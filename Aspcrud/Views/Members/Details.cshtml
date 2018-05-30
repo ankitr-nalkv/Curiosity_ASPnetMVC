@@ -1,0 +1,109 @@
+@using Aspcrud.Models;
+@{
+  Layout = null;
+}
+@{
+
+  member memberModel = ViewData["Member"] as member;
+  List<article> articleModel = ViewData["Articles"] as List<article>;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta Tags for Bootstrap 4 -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap 4 CSS -->
+  <link href="~/Scripts/category.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="~/Scripts/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="~/Scripts/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="~/Scripts/css/freelancer.min.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" style="padding: 8px 0px">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="@Url.Action("Index","Home")">Curious</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          @*<li class="nav-item" style="float: right">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Categories</a>
+            </li>
+            <li class="nav-item" style="float: right">
+              <a class="nav-link js-scroll-trigger" href="#contact">Post Article</a>
+            </li>
+            <li class="nav-item" style="float: right">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>*@
+
+          <li class="nav-item" style="float: right">
+            <a style="float: right" class="nav-link js-scroll-trigger" href="@Url.Action("Logout", "Login")">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Start of Card Columns Layout -->
+  <br><br><br><br>
+  <center><h1>My Profile</h1></center>
+  <hr class="star-primary">
+  <div class="container" style="display:flex;justify-content:space-evenly">
+    <img id="imag1" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9ENVu0ka73FZLONC-t62jQYP5M1uyOkJfMc6NB2kUS5KR9t48" style="width:225px;height:225px">
+    <div id="head2">
+      <br>
+      <b>
+        <font size="5">
+          <div>NAME: <label style="color:#18bc9c">@memberModel.first_name @memberModel.last_name</label></div><br>
+          <div>EMAIL: <label style="color:#18bc9c">@memberModel.email</label></div><br>
+          <div>USER NAME: <label style="color:#18bc9c">@memberModel.uname</label></div><br>
+          <div>REGISTRATION DATE: <label style="color:#18bc9c">@memberModel.regdate</label></div>
+        </font>
+      </b>
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br>
+  <center><h1 id="head3">My Articles</h1></center><hr class="star-primary">
+  <div class="card-columns">
+    @foreach (var item in articleModel)
+    {
+      <div class="card" onclick="redirectToPage(@item.id)">
+        <img class="card-img-top img-fluid" src=@item.imageurl alt="Card Columns 2">
+        <div class="card-body">
+          <h4 class="card-title">@item.Title</h4>
+          <p class="card-text text-card">@item.description</p>
+          <p class="card-text"><small class="text-muted">@item.source</small></p>
+        </div>
+      </div>
+    }
+  </div>
+
+  <script>
+    function redirectToPage(src) {
+      window.location.href = "http://localhost:65174/Article/Details/" + src;
+    }
+  </script>
+  <!-- End of Card Columns Layout -->
+  <!-- Bootstrap 4 Scripts -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+

@@ -1,0 +1,18 @@
+body{
+  padding: 0px 80px;
+}
+.text-card {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 23px;
+  max-height: 50px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.card{
+  cursor: pointer;
+}
+.card-size {
+  padding: 100px 0px;
+}

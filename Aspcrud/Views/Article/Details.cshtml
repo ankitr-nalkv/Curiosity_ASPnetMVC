@@ -1,0 +1,253 @@
+@model Aspcrud.Models.article
+
+@{
+  Layout = null;
+}
+
+@*<!DOCTYPE html>
+
+  <html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+  </head>
+  <body>
+    <div>
+      <h4>article</h4>
+      <hr />
+      <dl class="dl-horizontal">
+        <dt>
+          @Html.DisplayNameFor(model => model.category)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.category)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.source)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.source)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.timer)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.timer)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.vote)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.vote)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.imageurl)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.imageurl)
+        </dd>
+
+        <dt>
+          @Html.DisplayNameFor(model => model.userid)
+        </dt>
+
+        <dd>
+          @Html.DisplayFor(model => model.userid)
+        </dd>
+
+      </dl>
+    </div>
+    <p>
+      @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+      @Html.ActionLink("Back to List", "Index")
+    </p>
+  </body>
+  </html>*@
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+<head>
+  <title>@Model.Title</title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <link rel="shortcut icon" href="~/Scripts/img/brain_small.png?cb=1" />
+  <link rel="stylesheet" href="~/Scripts/css1/style.css" type="text/css" media="all" />
+
+  <link rel="stylesheet" href="~/Scripts/js1/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
+
+  <script type="text/javascript" src="~/Scripts/js1/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="~/Scripts/js1/jquery.jcarousel.js"></script>
+  <script type="text/javascript" src="~/Scripts/js1/fancybox/jquery.fancybox-1.3.1.js"></script>
+  <script type="text/javascript" src="~/Scripts/js1/jquery-func.js"></script>
+
+
+</head>
+<body>
+  <!-- Shell -->
+  <div id="shell">
+    <!-- Header -->
+    <!-- /Header -->
+    <!-- Navigation -->
+    <div id="navigation">
+      <ul>
+        <div class="toolbar">
+          <li><a href="http://localhost:65174/"><span style="color:white">CURIOUS</span></a></li>
+          <li><a href="http://localhost:65174/Category/Details/@Model.category"><span style="color:white">@Model.category</span></a></li>
+
+        </div>
+      </ul>
+
+    </div>
+    <!-- /Navigation -->
+    <!-- Main -->
+    <div id="main" class="big-box">
+      <div class="bg-top">
+        <div class="bg-bottom">
+          <!-- Big Slider -->
+          <div id="big-slider" class="slider">
+            <!-- Slider Holder -->
+            <div class="slider-holder">
+              <ul>
+                <!-- Slide -->
+                <li>
+                  <div class="image">
+                    <img src="@Model.imageurl" alt="" style="height:325px;width: 541px" />
+                  </div>
+
+                  <div class="data">
+                    <h2>@Model.Title</h2>
+
+                    <p>@Model.timer</p>
+                    <p>@Model.source</p>
+                    <p>@Model.category</p>
+
+                  </div>
+                </li>
+
+              </ul>
+              <div class="cl">&nbsp;</div>
+            </div>
+            <!-- Slider Holder -->
+            <!-- Slider Link -->
+            <a href="#" class="slider-link">View</a>
+            <!-- /Slider Link -->
+          </div>
+          <!-- /Big Slider -->
+          <!-- Top Text Block -->
+          <div id="top" class="text-block">
+            <!-- Content -->
+            <div id="content" class="box">
+              <h3>@Model.Title </h3>
+
+              <p><b>@Model.description</b></p>
+              <br>
+              <span><a id="img1"><img src="~/Scripts/css/ic_flag_black_36dp_1x.png"> </a><span><font id="span1" size="5">@Model.vote</font></b></span> </span>
+            </div>
+            <!-- Content -->
+            <!-- Box -->
+            <div class="box last" id="login Request">
+              <h3></h3>
+
+              <p></p>
+
+              <p></p>
+            </div>
+            <!-- /Box -->
+            <div class="cl">&nbsp;</div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    <!-- /Main -->
+
+    @*@if (TempData["id"].ToString() == Model.source)
+    {
+      <div>
+        <a href="@Url.Action("Edit", "Article" , new { id = Model.id })">Edit your Article</a>
+      </div>
+    }*@
+  </div>
+  <!-- /Shell -->
+</body>
+
+
+<script type="text/javascript">
+
+    $(function () {
+      //LoadData();
+      console.log("what");
+        $("#img1").click(function () {
+          @if(TempData["id"] != null) { }
+          //alert("");
+          var x = $("#span1").html();
+            //std.studentAddress = $("#StudentAddress").val();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("UpdateVote", "Article")',
+                data: "vote=" + x + "&id=" + @Model.id + "&user=" + "@TempData["id"]",
+                //data: '{std: ' + JSON.stringify(std) + '}',
+                //dataType: "json",
+                //contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                  console.log(data);
+                  if (data == "deleted") {
+                    alert("The following article is being deleted as the maximum value of downvote has reached");
+                    window.location.href = "@Url.Action("Details", "Category", new { id = @Model.category})";
+
+                  }
+                  if (data == "already") {
+                    alert("You have already flagged this article");
+                  }
+
+                  else {
+
+                    //alert(data);
+                    $("#span1").html(data);
+                  }
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+            return false;
+        });
+    });
+  
+</script>
+
+</html>
+
+
+
